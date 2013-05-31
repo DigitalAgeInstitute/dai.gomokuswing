@@ -110,6 +110,8 @@ public class ChallengeResponse implements Response {
 			// TODO: If game id doesn't exist, probably ignore...
 			controller.startNewGame(gameID, challengerUsername,
 					challengeeUsername);
+		} else if (message.equals("FAIL")) {
+			controller.displayGameCreationFailDialog();
 		} else {
 			// TODO: Display challenge rejected
 			controller.displayRejectDialog(challengeeUsername);

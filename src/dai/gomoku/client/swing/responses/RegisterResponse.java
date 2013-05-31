@@ -9,7 +9,9 @@ public class RegisterResponse implements Response {
 
 	private ClientController controller;
 
-	public RegisterResponse(ClientController controller) {
+	public RegisterResponse(String status, String message, ClientController controller) {
+		this.status = status;
+		this.message = message;
 		this.controller = controller;
 	}
 
@@ -17,6 +19,7 @@ public class RegisterResponse implements Response {
 	public void process() {
 		if (status.equals("OK")) {
 			controller.displayRegisterSuccessDialog();
+			controller.hideRegisterScreen();
 			controller.displayLoginScreen();
 		} else {
 			controller.displayRegisterFailDialog(message);

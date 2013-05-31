@@ -98,8 +98,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		if (e.getSource() == btnRegister) {
 			if (isInputComplete()) {
 				RegisterRequest regReq = new RegisterRequest(controller);
+				regReq.setUsername(txtUserName.getText());
 				regReq.setFirstName(txtFirstName.getText());
-				regReq.setLastName(txtLastName.getName());
+				regReq.setLastName(txtLastName.getText());
 				regReq.setEmail(txtEmail.getText());
 				regReq.setPhone(txtPhone.getText());
 				String password = "";
@@ -109,6 +110,7 @@ public class RegisterWindow extends JFrame implements ActionListener {
 				}
 				passChar = null;
 				regReq.setPassword(password);
+				controller.registerUser(regReq);
 			}
 		} else if (e.getSource() == btnCancel) {
 			controller.displayLoginScreen();
@@ -285,7 +287,7 @@ public class RegisterWindow extends JFrame implements ActionListener {
 	private void initRegisterButton() {
 		btnRegister = new JButton("Register");
 		btnRegister.addActionListener(this);
-		btnRegister.setEnabled(false);
+		//btnRegister.setEnabled(false);
 	}
 
 	private void initCancelButton() {

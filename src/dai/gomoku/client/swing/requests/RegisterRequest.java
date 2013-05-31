@@ -4,6 +4,7 @@ import dai.gomoku.client.swing.ClientController;
 
 public class RegisterRequest implements Request {
 	private String type = "REGISTERUSER";
+	private String username;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -14,6 +15,21 @@ public class RegisterRequest implements Request {
 
 	public RegisterRequest(ClientController controller) {
 		this.controller = controller;
+	}
+
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**
@@ -94,10 +110,24 @@ public class RegisterRequest implements Request {
 	@Override
 	public void request() {
 		String registerJSON = String
-				.format("{ \"type\":\"%s\", \"firstname\":\"%s\", \"lastname\":\"%s\", "
-						+ "\"email\":\"%s\", \"contacts\":\"%s\", \"password\":\"%s\" }",
-						type, firstName, lastName, email, phone, password);
+				.format("{ \"type\":\"%s\", \"firstName\":\"%s\", \"lastName\":\"%s\", "
+						+ "\"email\":\"%s\", \"contacts\":\"%s\", \"username\":\"%s\", "
+						+ "\"password\":\"%s\" }", type, firstName, lastName,
+						email, phone, username, password);
 		controller.sendToServer(registerJSON);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "RegisterRequest [type=" + type + ", username=" + username
+				+ ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", phone=" + phone + ", password="
+				+ password + "]";
 	}
 
 }

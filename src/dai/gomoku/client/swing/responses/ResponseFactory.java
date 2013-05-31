@@ -27,6 +27,9 @@ public class ResponseFactory {
 					wrapper.getGameID(), wrapper.getUsername(),
 					wrapper.getRow(), wrapper.getCol(), controller);
 			break;
+		case "REGISTERUSER":
+			response = new RegisterResponse(wrapper.getStatus(), wrapper.getMessage(), controller);
+			break;
 		case "HEARTBEAT":
 			response = new HeartBeatResponse(controller);
 			break;

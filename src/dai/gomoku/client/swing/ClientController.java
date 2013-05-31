@@ -47,7 +47,7 @@ public class ClientController {
 	}
 
 	public void displayGameWindow() {
-		mainWindow.setTitle("GOMOKU: "+username);
+		mainWindow.setTitle("GOMOKU: " + username);
 		mainWindow.setVisible(true);
 	}
 
@@ -218,6 +218,12 @@ public class ClientController {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void displayGameCreationFailDialog() {
+		JOptionPane.showMessageDialog(mainWindow,
+				"Could not create the game.\nTry again after some time.",
+				"Game Creation Failure", JOptionPane.ERROR_MESSAGE);
 	}
 
 }
