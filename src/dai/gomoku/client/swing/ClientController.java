@@ -133,6 +133,12 @@ public class ClientController {
 				+ " won.", "Invalid Move", JOptionPane.ERROR_MESSAGE);
 	}
 
+	public void displayGameCreationFailDialog() {
+		JOptionPane.showMessageDialog(mainWindow,
+				"Could not create the game.\nTry again after some time.",
+				"Game Creation Failure", JOptionPane.ERROR_MESSAGE);
+	}
+
 	public void registerUser(RegisterRequest regReq) {
 		regReq.request();
 	}
@@ -207,7 +213,10 @@ public class ClientController {
 		Socket sock;
 		ClientController controller;
 		try {
-			sock = new Socket("localhost", 4010);
+			ConnectionDialog connectionDialog = new ConnectionDialog(null,
+					"Connect To Server", true);
+			sock = new Socket(connectionDialog.getHostname(),
+					connectionDialog.getPort());
 			controller = new ClientController(sock);
 			ExecutorService service = Executors.newCachedThreadPool();
 			service.execute(new ResponseHandler(sock, controller));
@@ -218,12 +227,6 @@ public class ClientController {
 			e.printStackTrace();
 		}
 
-	}
-
-	public void displayGameCreationFailDialog() {
-		JOptionPane.showMessageDialog(mainWindow,
-				"Could not create the game.\nTry again after some time.",
-				"Game Creation Failure", JOptionPane.ERROR_MESSAGE);
 	}
 
 }
