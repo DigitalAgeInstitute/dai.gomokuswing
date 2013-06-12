@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import dai.gomoku.client.GameModelListener;
 import dai.gomoku.client.swing.requests.LoginRequest;
 
 public class GomokuLogin extends JFrame implements GameModelListener,
@@ -30,9 +31,9 @@ public class GomokuLogin extends JFrame implements GameModelListener,
 
 	private LoginRequest loginReq;
 
-	private ClientController controller;
+	private SwingClientController controller;
 
-	public GomokuLogin(ClientController controller) {
+	public GomokuLogin(SwingClientController controller) {
 		this.controller = controller;
 		initComponents();
 		addComponents();

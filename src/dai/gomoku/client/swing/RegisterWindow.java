@@ -50,9 +50,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 	private JButton btnRegister;
 	private JButton btnCancel;
 
-	private ClientController controller;
+	private SwingClientController controller;
 
-	public RegisterWindow( ClientController controller ) {
+	public RegisterWindow( SwingClientController controller ) {
 		this.controller = controller;
 		initComponents();
 		addComponents();

@@ -5,6 +5,9 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import dai.gomoku.client.BoardCell;
+import dai.gomoku.client.GameModel;
+
 import java.awt.GridLayout;
 
 public class BoardPanel extends JPanel {
@@ -16,9 +19,9 @@ public class BoardPanel extends JPanel {
 	private BoardCell [][] boardCells;
 
 	private GameModel model;
-	private ClientController controller;
+	private SwingClientController controller;
 
-	public BoardPanel(ClientController controller, GameModel model) {
+	public BoardPanel(SwingClientController controller, GameModel model) {
 		this.controller = controller;
 		this.model = model;
 		initCells();

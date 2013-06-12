@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 
+import dai.gomoku.client.GameModel;
 import dai.gomoku.client.Player;
 import dai.gomoku.client.swing.requests.ChallengeRequest;
 
@@ -38,9 +39,9 @@ public class GomokuGUI extends JFrame implements ActionListener {
 	private JButton btnChallenge;
 	private JLabel lblStatusMessages;
 
-	private ClientController controller;
+	private SwingClientController controller;
 
-	public GomokuGUI(ClientController controller) {
+	public GomokuGUI(SwingClientController controller) {
 		this.controller = controller;
 		gameWindows = new HashMap<String, GameWindow>();
 		initComponents();

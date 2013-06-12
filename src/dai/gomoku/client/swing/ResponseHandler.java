@@ -15,10 +15,10 @@ import dai.gomoku.client.swing.responses.ResponseWrapper;
 public class ResponseHandler implements Runnable {
 	private Socket socket;
 
-	private ClientController controller;
+	private SwingClientController controller;
 	private InputStream inputFromServer;
 
-	public ResponseHandler(Socket socket, ClientController controller) {
+	public ResponseHandler(Socket socket, SwingClientController controller) {
 		this.socket = socket;
 		this.controller = controller;
 		initIOStreams();

@@ -2,6 +2,9 @@ package dai.gomoku.client.swing;
 
 import javax.swing.JInternalFrame;
 
+import dai.gomoku.client.GameBoardChangeListener;
+import dai.gomoku.client.GameModel;
+
 /**
  * This class provides the play area for the the swing applications
  * 
@@ -11,13 +14,13 @@ import javax.swing.JInternalFrame;
 public class GameWindow extends JInternalFrame implements
 		GameBoardChangeListener {
 	private static final long serialVersionUID = 6028423532504626449L;
-	private ClientController controller;
+	private SwingClientController controller;
 	private String gameID;
 	private String opponentUsername;
 	private GameModel model;
 	private BoardPanel boardPanel;
 
-	public GameWindow(ClientController controller, String gameID,
+	public GameWindow(SwingClientController controller, String gameID,
 			String opponentUsername, GameModel model) {
 		super();
 		this.controller = controller;

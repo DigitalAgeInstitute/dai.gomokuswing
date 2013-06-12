@@ -10,13 +10,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.swing.JOptionPane;
+import dai.gomoku.client.ClientController;
+import dai.gomoku.client.GameModel;
 
 import dai.gomoku.client.swing.requests.ChallengeRequest;
 import dai.gomoku.client.swing.requests.LoginRequest;
 import dai.gomoku.client.swing.requests.RegisterRequest;
 import dai.gomoku.client.Player;
 
-public class ClientController {
+public class SwingClientController implements ClientController {
 	private Socket socket;
 
 	private String username;
@@ -28,7 +30,7 @@ public class ClientController {
 
 	private PrintWriter writer;
 
-	public ClientController(Socket socket) {
+	public SwingClientController(Socket socket) {
 		this.socket = socket;
 		this.games = new ArrayList<GameModel>();
 		initLoginScreen();
@@ -93,19 +95,19 @@ public class ClientController {
 		registerScreen.dispose();
 	}
 
-	public int displayChallengeDialog(String challengeeUsername) {
+	public int displayChallengeMessage(String challengeeUsername) {
 		return JOptionPane.showConfirmDialog(mainWindow, challengeeUsername
 				+ " challenged you to a game. Accept?", "Take the Challenge",
 				JOptionPane.YES_NO_OPTION);
 	}
 
-	public void displayRejectDialog(String challengeeUsername) {
+	public void displayRejectMessage(String challengeeUsername) {
 		JOptionPane.showConfirmDialog(mainWindow, challengeeUsername
 				+ " rejected your challenge. Another time maybe.",
 				"Challenge Rejected", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	public void displayRegisterSuccessDialog() {
+	public void displayRegisterSuccessMessage() {
 		displayLoginScreen();
 		JOptionPane
 				.showMessageDialog(
@@ -114,13 +116,13 @@ public class ClientController {
 						"Registration Failed", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	public void displayRegisterFailDialog(String message) {
+	public void displayRegisterFailMessage(String message) {
 		displayRegisterScreen();
 		JOptionPane.showMessageDialog(registerScreen, "Registration Failed:\n"
 				+ message, "Registration Failure", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public void displayMoveFailedDialog() {
+	public void displayMoveFailedMessage() {
 		JOptionPane
 				.showMessageDialog(
 						mainWindow,
@@ -128,12 +130,12 @@ public class ClientController {
 						"Invalid Move", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public void displayGameOverDialog(String winner) {
+	public void displayGameOverMessage(String winner) {
 		JOptionPane.showMessageDialog(mainWindow, "Game Over!\n" + winner
 				+ " won.", "Invalid Move", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public void displayGameCreationFailDialog() {
+	public void displayGameCreationFailMessage() {
 		JOptionPane.showMessageDialog(mainWindow,
 				"Could not create the game.\nTry again after some time.",
 				"Game Creation Failure", JOptionPane.ERROR_MESSAGE);
@@ -211,13 +213,13 @@ public class ClientController {
 
 	public static void main(String[] args) {
 		Socket sock;
-		ClientController controller;
+		SwingClientController controller;
 		try {
 			ConnectionDialog connectionDialog = new ConnectionDialog(null,
 					"Connect To Server", true);
 			sock = new Socket(connectionDialog.getHostname(),
 					connectionDialog.getPort());
-			controller = new ClientController(sock);
+			controller = new SwingClientController(sock);
 			ExecutorService service = Executors.newCachedThreadPool();
 			service.execute(new ResponseHandler(sock, controller));
 		} catch (UnknownHostException e) {
