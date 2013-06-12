@@ -233,16 +233,14 @@ public class RegisterWindow extends JFrame implements ActionListener {
 
 	private void addComponents() {
 		this.getContentPane().setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(5, 5, 5, 5);
-		addFirstNameComponents(gbc);
-		addLastNameComponents(gbc);
-		addEmailComponents(gbc);
-		addPhoneComponents(gbc);
-		addUsernameComponents(gbc);
-		addPasswordComponents(gbc);
-		addRegisterButton(gbc);
-		addCancelButton(gbc);
+		addFirstNameComponents();
+		addLastNameComponents();
+		addEmailComponents();
+		addPhoneComponents();
+		addUsernameComponents();
+		addPasswordComponents();
+		addRegisterButton();
+		addCancelButton();
 	}
 
 	private void initFirstNameComponents() {
@@ -295,7 +293,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		btnCancel.addActionListener(this);
 	}
 
-	private void addFirstNameComponents(GridBagConstraints gbc) {
+	private void addFirstNameComponents() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridheight = 1;
@@ -304,6 +304,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 0;
 		getContentPane().add(lblFirstName, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -312,7 +314,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(txtFirstName, gbc);
 	}
 
-	private void addLastNameComponents(GridBagConstraints gbc) {
+	private void addLastNameComponents() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridheight = 1;
@@ -321,6 +325,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 1;
 		getContentPane().add(lblLastName, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -329,7 +335,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(txtLastName, gbc);
 	}
 
-	private void addEmailComponents(GridBagConstraints gbc) {
+	private void addEmailComponents() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridheight = 1;
@@ -338,6 +346,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 2;
 		getContentPane().add(lblEmail, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -346,7 +356,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(txtEmail, gbc);
 	}
 
-	private void addPhoneComponents(GridBagConstraints gbc) {
+	private void addPhoneComponents() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridheight = 1;
@@ -355,6 +367,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 3;
 		getContentPane().add(lblPhone, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -363,7 +377,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(txtPhone, gbc);
 	}
 
-	private void addUsernameComponents(GridBagConstraints gbc) {
+	private void addUsernameComponents() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridheight = 1;
@@ -372,6 +388,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 4;
 		getContentPane().add(lblUsername, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -380,7 +398,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(txtUserName, gbc);
 	}
 
-	private void addPasswordComponents(GridBagConstraints gbc) {
+	private void addPasswordComponents() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridheight = 1;
@@ -389,6 +409,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 5;
 		getContentPane().add(lblPassword, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -396,6 +418,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.weightx = 1.0;
 		getContentPane().add(pswdPassword, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.gridheight = 1;
 		gbc.gridwidth = 1;
@@ -403,6 +427,8 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		gbc.gridy = 6;
 		getContentPane().add(lblConfirmPassword, gbc);
 
+		gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridx = 1;
@@ -411,7 +437,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(pswdConfirmPassword, gbc);
 	}
 
-	private void addRegisterButton(GridBagConstraints gbc) {
+	private void addRegisterButton() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -420,7 +448,9 @@ public class RegisterWindow extends JFrame implements ActionListener {
 		getContentPane().add(btnRegister, gbc);
 	}
 
-	private void addCancelButton(GridBagConstraints gbc) {
+	private void addCancelButton() {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(5, 5, 5, 5);
 		gbc.anchor = GridBagConstraints.NORTHEAST;
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
